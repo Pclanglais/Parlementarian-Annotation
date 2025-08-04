@@ -1,4 +1,6 @@
-## French Parliamentary Debate Annotation Scheme - Speech Section
+# French Parliamentary Debate Annotation Scheme
+
+## Speech Section
 
 ### Overview
 Each `<speech>` element contains annotations for individual parliamentary interventions, identified by a unique identifier and speaker name. The speech section captures the rhetorical, emotional, and argumentative dimensions of parliamentary discourse.
