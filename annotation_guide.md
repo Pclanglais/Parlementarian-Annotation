@@ -1,5 +1,77 @@
 # French Parliamentary Debate Annotation Scheme
 
+## Proposal Section
+
+### Overview
+The `<proposal>` element provides essential legislative context for each parliamentary debate, identifying the specific bill, law, or amendments under discussion. This section serves as the documentary header that situates the debate within the broader legislative process.
+
+### Tag Structure
+```xml
+<proposal>
+    <proposal_name>...</proposal_name>
+    <proposal_name_original>...</proposal_name_original>
+    <amendment>...</amendment>
+    <law>...</law>
+</proposal>
+```
+
+### Annotation Tags
+
+#### 1. `<proposal_name>`
+**Definition**: The English translation or descriptive title of the legislative proposal being discussed.
+**Format**: Clear, descriptive title that captures the essence of the legislative matter.
+
+**Usage**: Provides accessible identification of the subject matter for analysis purposes. Often includes procedural context (e.g., "Discussion of Article 6") or specific focus areas.
+
+**Examples**:
+- `<proposal_name>Right to Aid in Dying (Discussion of Article 6, Section 3)</proposal_name>`
+- `<proposal_name>Contribution on Ultra-Processed Foods</proposal_name>`
+- `<proposal_name>Emergency Bill for Mayotte</proposal_name>`
+- `<proposal_name>Fighting child sexual abuse > Vote on the whole</proposal_name>`
+- `<proposal_name>Student precariousness</proposal_name>`
+
+#### 2. `<proposal_name_original>`
+**Definition**: The original French title of the legislative proposal.
+**Format**: Exact French parliamentary designation as it appears in official documents.
+
+**Usage**: Preserves the authentic legislative reference and allows for precise identification within the French parliamentary system. Essential for cross-referencing with official records.
+
+**Examples**:
+- `<proposal_name_original>Droit à l'aide à mourir (Discussion des articles, Alinéa 3 de l'article 6)</proposal_name_original>`
+- `<proposal_name_original>Contribution sur les produits alimentaires ultratransformés</proposal_name_original>`
+- `<proposal_name_original>Projet de loi d'urgence pour Mayotte</proposal_name_original>`
+- `<proposal_name_original>Lutter contre la pédocriminalité > Vote sur l'ensemble</proposal_name_original>`
+- `<proposal_name_original>Précarité étudiante</proposal_name_original>`
+
+### 3. `<amendment>`
+**Definition**: Detailed description of specific amendments, modifications, or parliamentary proposals under discussion.
+**Format**: Structured enumeration of amendments with numbers, sponsors, and brief descriptions of their content.
+
+**Examples**:
+
+*Simple Amendment:*
+```xml
+<amendment>Amendement no 2307</amendment>
+```
+
+*Complex Amendment Structure:*
+```xml
+<amendment>Unnamed amendment proposed by Stella Dupont to remove Section 3 of Article 6.
+    *   Amendment no. 44 by Patrick Hetzel (aiming to introduce judicial review for doubts regarding free and informed consent).
+    *   Amendment no. 45 by Patrick Hetzel (aiming to exclude persons with psychiatric illnesses).</amendment>
+```
+
+#### 4. `<law>`
+**Definition**: The broader legislative framework or bill within which the debate takes place.
+**Format**: Official designation of the law or bill, often including specific identifying numbers.
+
+**Usage**: Provides the formal legislative context that frames the specific amendments or discussions. Essential for understanding the scope and significance of the debate.
+
+**Examples**:
+- `<law>Projet de loi de financement de la sécurité sociale pour 2025</law>`
+- `<law>Projet de loi de 2024 (as referenced by the government and speakers, indicating a bill currently under discussion).</law>`
+- `<law>Article 3 of the law concerning "Droit à l'aide à mourir"</law>`
+
 ## Speech Section
 
 ### Overview
