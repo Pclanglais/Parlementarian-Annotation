@@ -217,3 +217,200 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 4. **Hierarchical Structure**: Tags work together to create a comprehensive picture of each speech act within the parliamentary context.
 
 5. **Flexibility**: The scheme accommodates both formal procedural language and heated political exchanges, capturing the full spectrum of parliamentary discourse.
+
+
+## Debate Section
+
+### Overview
+The `<debate>` element provides a comprehensive meta-level analysis of the entire parliamentary exchange, capturing the thematic content, procedural context, emotional atmosphere, political dynamics, and outcomes of the debate.
+
+### Tag Structure
+```xml
+<debate>
+    <topics>...</topics>
+    <debate_type>...</debate_type>
+    <tone>...</tone>
+    <coalition_dynamics>...</coalition_dynamics>
+    <debate_resolution>...</debate_resolution>
+    <vote_resolution>...</vote_resolution>
+</debate>
+```
+
+### Annotation Tags
+
+#### 1. `<topics>`
+**Definition**: The substantive themes and subject matters discussed during the debate.
+**Format**: Free-text enumeration of topics, typically separated by line breaks or presented as a narrative list.
+
+**Usage**: Captures both the primary legislative focus and secondary themes that emerge during discussion. Topics can range from specific policy details to broader procedural and political issues.
+
+**Examples**:
+```xml
+<topics>
+Health risks of ultra-processed foods (cancers, cardiovascular diseases, type 2 diabetes)
+Public health policy and prevention strategies
+Taxation/contribution on specific products
+Legislative procedure: amendment definition, impact studies, modalities of implementation
+Nova food classification
+Collaboration with the agri-food industry
+</topics>
+```
+
+```xml
+<topics>
+Taxation of workers
+Taxation of retirees
+Fairness in taxation
+Contribution of workers and retirees to national solidarity
+</topics>
+```
+
+#### 2. `<debate_type>`
+**Definition**: The procedural and functional category of the parliamentary exchange.
+**Values**:
+
+##### Primary Types:
+- **Construction of a law article** - Formal legislative drafting and amendment discussions
+- **Questions au gouvernement** - Government Q&A sessions
+- **Polemics** - Confrontational political exchanges
+- **Government declaration** - Executive policy announcements
+- **Presentation of a law proposal** - Introduction of new legislation
+- **Vote on the whole** - Final passage votes
+
+##### Combined/Qualified Types:
+- **Questions au gouvernement > Polemics** - Q&A sessions that become confrontational
+- **Construction of a law article > Polemics** - Legislative work with significant conflict
+- **Questions to the government (Q&A), Polemic** - Multiple procedural contexts
+
+**Usage**: Can include specific qualifications in parentheses to provide additional context about the nature or focus of the debate.
+
+**Examples**:
+- `<debate_type>Construction of a law article (discussion and vote on an amendment to a financing bill)</debate_type>`
+- `<debate_type>Questions au Gouvernement > Polemics (highly confrontational exchanges)</debate_type>`
+- `<debate_type>Polemics (Questions au gouvernement)</debate_type>`
+
+#### 3. `<tone>`
+**Definition**: The overall emotional and interactional atmosphere of the debate.
+**Values**:
+
+#### Single Descriptors:
+- `Neutral` - Professional, unemotional discourse
+- `Constructive` - Collaborative, solution-oriented
+- `Confrontational` - Adversarial and argumentative
+- `Chaotic` - Disorderly, with multiple interruptions
+- `Respectful` - Maintaining parliamentary decorum
+
+#### Complex/Evolving Tones:
+- `Neutral to constructive` - Progressive improvement in atmosphere
+- `Chaotic (initial banter) > Neutral (as formal proceedings resume)` - Temporal evolution
+- `Chaotic and confrontational (marked by frequent interjections, exclamations, and direct personal attacks)`
+
+**Usage**: Often includes specific descriptive details in parentheses explaining the characteristics that define the tone.
+
+**Examples**:
+- `<tone>Neutral to constructive. The exchange is formal and follows parliamentary procedure, with no overt aggression or personal attacks. The government's opposition is explained calmly and rationally.</tone>`
+- `<tone>Chaotic and confrontational (marked by frequent interjections, exclamations, and direct personal attacks).</tone>`
+
+#### 4. `<coalition_dynamics>`
+**Definition**: The political positioning and interactions of different speakers, parties, and groups during the debate.
+**Format**: Structured list identifying each participant with their political affiliation and stance.
+
+#### Participant Identification:
+- **Individual names** with party/role affiliation in parentheses
+- **Party/group abbreviations** (LFI-NFP, EPR, DR, RN, etc.)
+- **Role descriptions** (Member of French Government, Representative of...)
+
+#### Stance Categories:
+- `Proposed` - Initiating or advocating for the measure
+- `Opposed` - Against the measure or position
+- `Supportive` - Backing other speakers or positions
+- `Facilitated` - Managing procedural aspects
+- `Neutral` - Maintaining institutional neutrality
+- `Defensive` - Responding to attacks or criticism
+
+**Usage**: Each entry typically follows the format: "Name (Affiliation): Stance (with qualification/explanation)". Complex dynamics can be captured with multiple stance indicators.
+
+**Examples**:
+```xml
+<coalition_dynamics>
+François Gernigon (center-right independent party): Proposed (amendment no 2307)
+Naïma Moutchou (center-right independent party): Facilitated (as chair of the session)
+Yannick Neuder (Member of French Government): Opposed
+Geneviève Darrieussecq (Representative of centrist party (Les Démocrates)): Opposed (explained the government's position)
+</coalition_dynamics>
+```
+
+```xml
+<coalition_dynamics>
+Front Populaire (LFI-NFP): Proposed (the abrogation law), Opposed (to the blocking tactics by the majority), Assertive (demanding substantive debate)
+Manuel Bompard: Proposed > Opposed (to blocking) > Assertive (for substantive debate)
+Center-right independent party (Naïma Moutchou): Facilitated (presiding the session), but her actions align with the procedural tactics employed by the majority
+</coalition_dynamics>
+```
+
+#### 5. `<debate_resolution>`
+**Definition**: The substantive outcome or conclusion of the debate in terms of the underlying policy or political question.
+**Values**:
+
+#### Definitive Outcomes:
+- `Positive` - Favorable resolution of the main issue
+- `Negative` - Unfavorable resolution or rejection
+- `Interrupted/Stalled` - Debate halted without conclusion
+- `Suspended` - Temporarily postponed
+
+#### Non-Applicable Cases:
+- `Non-applicable` - For formats that don't seek resolution (Q&A sessions, declarations)
+
+**Usage**: Often includes detailed explanations of what specifically was resolved and any nuances or future implications.
+
+**Examples**:
+- `<debate_resolution>Negative (the specific amendment was rejected). However, the explanation provided by the government suggests that the underlying issue might be addressed in future work, possibly through different means or after further study.</debate_resolution>`
+- `<debate_resolution>Non-applicable (as a "Question au Gouvernement," it's not designed for a formal resolution; this specific exchange appears to be cut short by calls for order, suggesting it was effectively interrupted).</debate_resolution>`
+
+#### 6. `<voice_resolution>`
+**Definition**: The formal voting outcome when a parliamentary vote occurs.
+**Values**:
+
+#### Vote Outcomes:
+- `Positive` - Motion/amendment adopted
+- `Negative` - Motion/amendment rejected  
+- `Suspended` - Vote postponed or incomplete
+
+#### Non-Applicable Cases:
+- `Non-applicable` - When no formal vote takes place
+
+**Usage**: Typically includes specific details about what was voted on and sometimes vote counts when available.
+
+**Examples**:
+- `<vote_resolution>Negative (amendment no 2307 was rejected).</vote_resolution>`
+- `<vote_resolution>Negative (The amendments to suppress Article 17 were rejected, with 83 votes against their adoption and 51 votes for). This means Article 17, establishing the "délit d'entrave," remains in the bill.</vote_resolution>`
+- `<vote_resolution>Non-applicable.</vote_resolution>`
+
+### Debate Type Categories
+
+#### Legislative Debates
+- **Construction of a law article**: Formal amendment and article-by-article examination
+- **Presentation of a law proposal**: Introduction of new legislation
+- **Vote on the whole**: Final passage considerations
+
+#### Executive-Legislative Interactions  
+- **Questions au gouvernement**: Regular government accountability sessions
+- **Government declaration**: Executive policy announcements and reactions
+
+#### Confrontational Exchanges
+- **Polemics**: Highly adversarial political debates
+- **Questions au gouvernement > Polemics**: Q&A sessions that become confrontational
+
+### Usage Notes
+
+1. **Temporal Evolution**: The tone and dynamics can evolve during a debate, captured through sequential descriptions (e.g., "Chaotic > Neutral").
+
+2. **Multi-dimensional Analysis**: Coalition dynamics capture both the formal political affiliations and the actual behavioral stances during the specific debate.
+
+3. **Procedural Context**: The debate_type provides crucial context for interpreting the significance and constraints of the exchange.
+
+4. **Resolution Distinction**: The scheme distinguishes between substantive debate outcomes (debate_resolution) and formal parliamentary votes (vote_resolution).
+
+5. **Non-Applicable Categories**: Many parliamentary formats (especially Q&A sessions) don't aim for formal resolutions, appropriately marked as "Non-applicable."
+
+6. **Detailed Explanations**: Most tags include extensive explanatory text to capture the nuanced reality of parliamentary dynamics that can't be reduced to simple categorical labels.
