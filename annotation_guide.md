@@ -113,6 +113,8 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 #### 2. `<epistemic_claim>`
 **Definition**: The type of knowledge or evidence framework invoked by the speaker.
 
+The fields from this category were partly built on top of the work of Bernard Reber.
+
 **Values**:
 - `Expert knowledge` - Professional or technical expertise
 - `Figures` - Statistical or numerical evidence
