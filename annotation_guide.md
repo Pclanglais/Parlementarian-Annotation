@@ -87,179 +87,202 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 ### Annotation Tags
 
 #### 1. `<stance>`
-**Definition**: The speaker's positioning relative to the topic, amendment, or other speakers.
+**Definition**: The speaker's positioning regarding the proposal being discussed.
 **Values**:
-- `Assertive` - Confidently presenting a position
-- `Defensive` - Responding to criticism or attacks
-- `Offensive` - Actively attacking positions or opponents
-- `Supportive` - Expressing agreement or backing
-- `Opposed` - Expressing disagreement or opposition
+- `Offensive` - Actively attacking the proposal or opposing positions
+- `Defensive` - Responding to criticism or protecting a position
+- `Assertive` - Confidently presenting a position on the proposal
+- `Supportive` - Expressing agreement or backing for the proposal
+- `Opposed` - Expressing disagreement or opposition to the proposal
 - `Neutral` - Maintaining institutional neutrality
 - `Facilitative` - Managing debate flow (often procedural roles)
-- `Cooperative` - Working collaboratively
-- `Dismissive` - Rejecting arguments or positions
-- `Challenging` - Questioning or confronting
-- `Critical` - Evaluating negatively
-- `Confirming` - Validating or reinforcing
+- `Consensus-seeking` - Working toward agreement or compromise
+- `Dismissive` - Rejecting the proposal or arguments
+- `Challenging` - Questioning or confronting the proposal
+- `Critical` - Evaluating the proposal negatively
+- `Confirming` - Validating or reinforcing the proposal
 
 **Usage**: Multiple stance tags can be applied to capture complex positioning. Often qualified with contextual information in parentheses.
 
 **Examples**:
-- `<stance>Opposed</stance>` - Simple opposition
-- `<stance>Opposed , Assertive (to government's view)</stance>` - Qualified opposition
-- `<stance>Defensive</stance><stance>Assertive</stance>` - Multiple stances
+- `<stance>Opposed</stance>` - Simple opposition to the proposal
+- `<stance>Supportive, Assertive (regarding amendment 785)</stance>` - Qualified support
+- `<stance>Defensive</stance><stance>Critical</stance>` - Multiple stances
 
-#### 2. `<emotion>`
+#### 2. `<epistemic_claim>`
+**Definition**: The type of knowledge or evidence framework invoked by the speaker.
+**Values**:
+- `Expert knowledge` - Professional or technical expertise
+- `Figures` - Statistical or numerical evidence
+- `Institutional knowledge` - Knowledge of procedures, precedents, or institutional memory
+- `Historical reference` - Appeals to historical precedent or events
+- `Will of the people` - Democratic legitimacy arguments
+- `Common sense` - Appeal to obvious or intuitive reasoning
+- `Lived experience` - Personal or community experience
+- `Practical necessity` - Arguments based on practical needs
+- `Personal testimony` - First-hand experience or anecdotal evidence
+- `Values/Ideology` - Moral or ideological principles
+- `Principles` - General philosophical principles
+- `Contested facts` - Disputed or controversial information
+
+**Usage**: Always includes bracketed quotes showing the specific textual evidence.
+
+**Examples**:
+- `<epistemic_claim>Expert knowledge ["according to constitutional scholars"]</epistemic_claim>`
+- `<epistemic_claim>Figures ["200 billion euros"]</epistemic_claim>`
+- `<epistemic_claim>Will of the people ["the citizens have clearly expressed their will"]</epistemic_claim>`
+
+#### 3. `<deliberative_quality>`
+**Definition**: Assessment of the contribution's quality to democratic deliberation.
+**Values**:
+- `Justified` - Claims are supported with reasons and evidence
+- `Responsive` - Builds meaningfully on previous contributions
+- `Civil` - Maintains respectful discourse
+- `Position-changing` - Shows evolution or modification of views
+- `Dismissive` - Ignores or dismisses opposing arguments without engagement
+- `Repetitive` - Repeats previous points without new reasoning
+
+**Usage**: Multiple tags can assess different aspects of deliberative quality.
+
+**Examples**:
+- `<deliberative_quality>Justified</deliberative_quality><deliberative_quality>Responsive</deliberative_quality>`
+- `<deliberative_quality>Dismissive ["I won't even dignify that with a response"]</deliberative_quality>`
+
+#### 4. `<emotional_valence>`
 **Definition**: The emotional tone expressed by the speaker.
 **Values**:
 - `Neutral` - No particular emotional coloring
-- `Passionate` - Intense, fervent expression
 - `Aggressive` - Hostile or combative tone
 - `Sarcastic` - Ironic or mocking tone
-- `Dismissive` - Contemptuous or disdainful
-- `Positive` - Optimistic or encouraging
-- `Negative` - Pessimistic or critical
-- `Assertive` - Confident and forceful
+- `Passionate` - Intense, fervent expression
 - `Concerned` - Worried or troubled
+- `Critical` - Evaluative and fault-finding
+- `Accusatory` - Blaming or charging with fault
+- `Frustrated` - Showing annoyance or impatience
+- `Firm` - Resolute and unwavering
+- `Impatient` - Showing restlessness or urgency
+- `Indignant` - Showing anger at perceived injustice
+- `Enthusiastic` - Showing excitement or eagerness
+- `Determined` - Showing resolve and purpose
+- `Humorous` - Using humor or wit
+- `Disappointed` - Showing sadness or dissatisfaction
+- `Regretful` - Showing remorse or sorrow
+- `Exasperated` - Showing extreme frustration
 
 **Usage**: Can have multiple emotion tags. Sometimes qualified with specific quotes.
 
 **Examples**:
-- `<emotion>Sarcastic [""C'est grâce à la gauche !""]</emotion>`
-- `<emotion>Aggressive</emotion><emotion>Passionate</emotion>`
+- `<emotional_valence>Sarcastic ["Thanks to the left, of course!"]</emotional_valence>`
+- `<emotional_valence>Passionate</emotional_valence><emotional_valence>Indignant</emotional_valence>`
 
-#### 3. `<epistemic_frame>`
-**Definition**: The type of knowledge or reasoning framework invoked by the speaker.
+#### 5. `<debate_adherence>`
+**Definition**: How the speaker relates to debate norms, procedures, and framing.
 **Values**:
-- `Procedure/law` - Legal, procedural, or regulatory arguments
-- `Figures` - Statistical or numerical evidence
-- `Common sense` - Appeal to obvious or intuitive reasoning
-- `Practical necessity` - Arguments based on practical needs
-- `Daily life` - References to everyday experience
-- `Personal testimony` - First-hand experience or anecdotal evidence
-- `Historical reference` - Appeals to historical precedent
-- `Will of the people` - Democratic legitimacy arguments
-- `Values/Ideology` - Moral or ideological principles
-- `Principles` - General philosophical principles
-- `Threat` - Warnings or dire predictions
-- `national heritage/value` - Appeals to national identity
-
-**Usage**: Always includes bracketed quotes showing the specific textual evidence.
-
-**Examples**:
-- `<epistemic_frame>Procedure/law [""remettent en cause le pacte Dutreil""]</epistemic_frame>`
-- `<epistemic_frame>Figures [""200 milliards d'euros""]</epistemic_frame>`
-
-#### 4. `<debate_adherence>`
-**Definition**: How the speaker relates to debate norms and procedures.
-**Values**:
+- `Disruption` - Breaking or challenging debate norms significantly
+- `Digression` - Slight deviation but still within the same theme
 - `Respectful` - Following parliamentary etiquette
-- `Disruption` - Breaking or challenging debate norms
-- `Digression` - Going off-topic or procedural deviation
-- `Adherence` / `Adherent` - Conforming to debate rules
+- `Adherence` - Conforming to debate rules and procedures
+- `Procedural` - Focusing on procedural matters
+- `Confrontational` - Engaging in direct conflict or opposition
+- `Constructive` - Contributing positively to the debate process
+- `Maintaining order` - Working to preserve debate structure
 
 **Usage**: Sometimes qualified with specific examples in brackets.
 
 **Examples**:
-- `<debate_adherence>Disruption [""150 ou 200 amendements""]</debate_adherence>`
-- `<debate_adherence>Respectful</debate_adherence>`
+- `<debate_adherence>Disruption ["150 or 200 amendments"]</debate_adherence>`
+- `<debate_adherence>Constructive</debate_adherence><debate_adherence>Respectful</debate_adherence>`
 
-#### 5. `<argumentative_structure>`
+#### 6. `<argumentative_structure>`
 **Definition**: The rhetorical or logical structure of the intervention.
 **Values**:
+- `Personal testimony` - Using personal experience as evidence
 - `Reaction` - Responding to previous interventions
 - `Explaining government's position` - Official governmental stance
 - `Call to action` - Urging specific actions
-- `Enumeration` - Listing points or arguments
+- `Enumeration` - Listing points or arguments systematically
 - `Direct accusation` - Making explicit accusations
-- `Counter-argumentation` - Systematic refutation
+- `Counter-argumentation` - Systematic refutation of opposing views
 - `Explaining the problem` - Problem identification and analysis
-- `Defending` - Protecting a position or policy
-- `Structured argument` - Organized logical presentation
-- `Personal testimony` - Using personal experience as evidence
+- `Rhetorical question` - Using questions for persuasive effect
+- `Justification` - Providing reasons and support for positions
+- `Rebuttal` - Responding to and refuting opposing arguments
+- `Problem-solution` - Identifying problems and proposing solutions
 
 **Usage**: Multiple tags can describe complex rhetorical structures.
 
 **Examples**:
-- `<argumentative_structure>Enumeration</argumentative_structure><argumentative_structure>Call to action</argumentative_structure>`
-
-#### 6. `<performative_act>`
-**Definition**: What the speaker is doing through their speech (speech acts).
-**Values**:
-- `Give the floor` - Procedural floor management
-- `Request an opinion` - Asking for positions
-- `Call to vote` - Initiating voting procedures
-- `Announce vote results` - Declaring outcomes
-- `Recommending a vote` - Advising voting behavior
-- `Requesting withdrawal of amendments` - Procedural requests
-- `Call to action` - Urging specific actions
-- `Clarification` - Providing explanations
-
-**Usage**: Often includes specific contextual details in parentheses.
-
-**Examples**:
-- `<performative_act>Call to action (France must support, IRGC on EU terror list)</performative_act>`
-- `<performative_act>Give the floor</performative_act>`
+- `<argumentative_structure>Problem-solution</argumentative_structure><argumentative_structure>Call to action</argumentative_structure>`
+- `<argumentative_structure>Rhetorical question ["How can we ignore such evidence?"]</argumentative_structure>`
 
 #### 7. `<audience>`
-**Definition**: Who the speaker is primarily addressing.
+**Definition**: Who the speaker is primarily addressing or targeting.
 **Values**:
-- `General public` - Broader public audience
-- `Government` - Executive branch
-- `Opponent` - Political adversaries
-- `Ally` - Political supporters
-- `Institutional role` - Specific parliamentary roles
-- Individual names - Direct address to specific members
+- `Opponents` - Political adversaries or those with opposing views
+- `Allies` - Political supporters or those with aligned views
+- `Citizens` - General public or electorate
+- `Civil society` - NGOs, associations, organized groups
+- `Future generations` - Those who will be affected in the future
+- `Affected populations` - Specific groups impacted by the proposal
+- `Government` - Executive branch or ministers
+- `Institutional roles` - Specific parliamentary roles or positions
 
-**Usage**: Can specify multiple audiences. Sometimes qualified with names or roles.
+**Usage**: Can specify multiple audiences. Sometimes qualified with names or specific groups.
 
 **Examples**:
-- `<audience>Government (France/EU)</audience>`
-- `<audience>Opponent (Jean-Philippe Tanguy)</audience>`
+- `<audience>Citizens</audience><audience>Affected populations (farmers)</audience>`
+- `<audience>Government (Minister of Finance)</audience>`
 
 #### 8. `<figure_of_speech>`
-**Definition**: Rhetorical devices and stylistic elements used.
+**Definition**: Rhetorical devices and stylistic elements used by the speaker.
 **Values**:
 - `Metaphor` - Figurative comparisons
+- `Anaphora` - Repetition at the beginning of successive clauses
+- `Analogy` - Comparison to explain or clarify
 - `Hyperbole` - Exaggeration for effect
+- `Understatement/litote` - Deliberate understatement or negation
+- `Enumeration` - Structured listing for emphasis
 - `Repetition` - Repeated words or phrases
-- `Apostrophe` - Direct address
-- `Antithesis` - Contrasting ideas
-- `Rhetorical question` - Questions for effect
-- `Synecdoche` - Part representing whole
-- `Enumeration` - Structured listing
-- `Anaphora` - Repetition at beginning of clauses
-- `Sarcasm` - Ironic expression
+- `Antithesis` - Contrasting ideas or concepts
+- `Parallelism` - Similar grammatical structures
+- `Apostrophe` - Direct address to someone not present
+- `Climax` - Building to a crescendo or peak
+- `Aposiopesis` - Deliberate breaking off of speech
+- `Apophasis` - Mentioning by claiming not to mention
+- `Polysyndeton` - Deliberate use of many conjunctions
+- `Chiasmus` - Reversal of grammatical structures
+- `Synecdoche` - Part representing the whole
 
 **Usage**: Always includes bracketed quotes showing the specific textual evidence.
 
 **Examples**:
-- `<figure_of_speech>Metaphor [""cette prison de tissu""]</figure_of_speech>`
-- `<figure_of_speech>Hyperbole [""une fois, deux fois, dix fois""]</figure_of_speech>`
+- `<figure_of_speech>Metaphor ["this prison of fabric"]</figure_of_speech>`
+- `<figure_of_speech>Anaphora ["We must act, we must decide, we must move forward"]</figure_of_speech>`
+- `<figure_of_speech>Hyperbole ["once, twice, ten times"]</figure_of_speech>`
 
 #### 9. `<support>`
 **Definition**: Explicit backing or agreement with other speakers or positions.
-**Values**: References to specific speakers, amendments, or positions.
+**Values**: References to specific speakers with their full names and specific id_syceron.
 
-**Usage**: Includes specific references, often with speech identifiers.
+**Usage**: Always includes the complete name of the person and their speech identifier.
 
 **Examples**:
 - `<support>Ayda Hadizadeh (#3614643)</support>`
-- `<support>Jean-Paul Mattei's amendment [""en faveur de l'amendement no 3590""]</support>`
+- `<support>Jean-Paul Mattei (#3527401) [supporting amendment 3590]</support>`
 
 #### 10. `<attack>`
 **Definition**: Explicit criticism or opposition to other speakers or positions.
-**Values**: References to specific speakers, amendments, or positions being criticized.
+**Values**: References to specific speakers with their full names and specific id_syceron being criticized.
 
-**Usage**: Similar format to support, with specific references and sometimes quoted critiques.
+**Usage**: Always includes the complete name of the person and their speech identifier.
 
 **Examples**:
 - `<attack>Laurent Saint-Martin (#3527393)</attack>`
-- `<attack>Éva Sas's amendment [""votez contre l'amendement no 785""]</attack>`
+- `<attack>Éva Sas (#3550045) [opposing amendment 785]</attack>`
 
 #### 11. `<reference>`
-**Definition**: Mentions or citations of other speakers, documents, or legislative elements.
-**Values**: Names, speech identifiers, legislative references.
+**Definition**: Neutral mentions or citations of other speakers, documents, or legislative elements.
+**Values**: Full names of people with their specific id_syceron for neutral references.
 
 **Usage**: Used for neutral mentions that aren't explicitly supportive or attacking.
 
@@ -267,18 +290,51 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 - `<reference>François Gernigon (#3550027)</reference>`
 - `<reference>Naïma Moutchou (#3550031)</reference>`
 
-#### 12. `<text_editing>`
-**Definition**: Proposed textual modifications to legislation or amendments.
-**Values**: 
-- `Remove` - Deletion proposals
-- `Change` - Modification proposals
-- `Add` - Addition proposals
+#### 12. `<performative_act>`
+**Definition**: Actual actions performed through the speaker's intervention.
+**Values**:
+- `Call to vote` - Initiating voting procedures
+- `Announce vote result` - Declaring voting outcomes
+- `Recommend a vote` - Advising specific voting behavior
+- `Request an opinion` - Asking for positions or views
+- `Call to speak` - Inviting someone to speak
+- `Call for speaker` - Requesting a specific speaker
+- `Ask for opinion` - Soliciting views or positions
+- `Ask for government's opinion` - Requesting official government position
+- `Call for opinion` - General request for viewpoints
+- `Give an opinion` - Providing a position or view
+- `Call for order` - Requesting adherence to procedures
+- `Support an amendment` - Backing specific legislative changes
+- `Cede the floor` - Giving up speaking time
+- `Suspend the session` - Pausing proceedings
+- `Open the session` - Beginning proceedings
+- `Resume the session` - Continuing after suspension
+- `Allocate floor time` - Assigning speaking time
+- `Submit an amendment` - Proposing legislative changes
+- `Bring a formal complaint` - Making official objections
+- `Give the floor` - Granting speaking permission
+- `Request withdrawal of amendment` - Asking for amendment removal
+- `Clarification` - Providing explanations or corrections
 
-**Usage**: Includes bracketed quotes showing the specific text being modified.
+**Usage**: Often includes specific contextual details in parentheses.
 
 **Examples**:
-- `<text_editing>Remove [""remettent en cause le pacte Dutreil""]</text_editing>`
-- `<text_editing>Change [""trois mois""]</text_editing>`
+- `<performative_act>Call to vote (amendment 3590)</performative_act>`
+- `<performative_act>Request withdrawal of amendment (no. 785)</performative_act>`
+
+#### 13. `<text_editing>`
+**Definition**: Specific textual modifications proposed for legislation or amendments.
+**Values**: 
+- `ADD ("[text to add]")` - Proposed additions to text
+- `REMOVE ("[text to remove]")` - Proposed deletions from text
+- `CHANGE ("[text to change]")` - Proposed modifications to text
+
+**Usage**: Always includes the specific text being modified in brackets using the standardized formulas.
+
+**Examples**:
+- `<text_editing>REMOVE ("[text that undermines the Dutreil pact]")</text_editing>`
+- `<text_editing>ADD ("[within three months]")</text_editing>`
+- `<text_editing>CHANGE ("[from six months to three months]")</text_editing>`
 
 ### Notes on Usage
 
@@ -286,12 +342,7 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 
 2. **Contextual Qualifiers**: Many tags include parenthetical qualifications or bracketed quotes to provide specific textual evidence.
 
-3. **Cross-References**: The scheme uses speech identifiers (e.g., #3550027) to create links between interventions.
-
-4. **Hierarchical Structure**: Tags work together to create a comprehensive picture of each speech act within the parliamentary context.
-
-5. **Flexibility**: The scheme accommodates both formal procedural language and heated political exchanges, capturing the full spectrum of parliamentary discourse.
-
+3. **Cross-References**: The scheme uses speech identifiers (e.g., #3550027) with complete speaker names to create links between interventions.
 
 ## Debate Section
 
