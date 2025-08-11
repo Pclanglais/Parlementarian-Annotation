@@ -88,6 +88,7 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 
 #### 1. `<stance>`
 **Definition**: The speaker's positioning regarding the proposal being discussed.
+
 **Values**:
 - `Offensive` - Actively attacking the proposal or opposing positions
 - `Defensive` - Responding to criticism or protecting a position
@@ -111,6 +112,7 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 
 #### 2. `<epistemic_claim>`
 **Definition**: The type of knowledge or evidence framework invoked by the speaker.
+
 **Values**:
 - `Expert knowledge` - Professional or technical expertise
 - `Figures` - Statistical or numerical evidence
@@ -134,6 +136,7 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 
 #### 3. `<deliberative_quality>`
 **Definition**: Assessment of the contribution's quality to democratic deliberation.
+
 **Values**:
 - `Justified` - Claims are supported with reasons and evidence
 - `Responsive` - Builds meaningfully on previous contributions
@@ -150,6 +153,7 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 
 #### 4. `<emotional_valence>`
 **Definition**: The emotional tone expressed by the speaker.
+
 **Values**:
 - `Neutral` - No particular emotional coloring
 - `Aggressive` - Hostile or combative tone
@@ -177,6 +181,7 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 
 #### 5. `<debate_adherence>`
 **Definition**: How the speaker relates to debate norms, procedures, and framing.
+
 **Values**:
 - `Disruption` - Breaking or challenging debate norms significantly
 - `Digression` - Slight deviation but still within the same theme
@@ -195,6 +200,7 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 
 #### 6. `<argumentative_structure>`
 **Definition**: The rhetorical or logical structure of the intervention.
+
 **Values**:
 - `Personal testimony` - Using personal experience as evidence
 - `Reaction` - Responding to previous interventions
@@ -217,6 +223,7 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 
 #### 7. `<audience>`
 **Definition**: Who the speaker is primarily addressing or targeting.
+
 **Values**:
 - `Opponents` - Political adversaries or those with opposing views
 - `Allies` - Political supporters or those with aligned views
@@ -235,6 +242,7 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 
 #### 8. `<figure_of_speech>`
 **Definition**: Rhetorical devices and stylistic elements used by the speaker.
+
 **Values**:
 - `Metaphor` - Figurative comparisons
 - `Anaphora` - Repetition at the beginning of successive clauses
@@ -262,6 +270,7 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 
 #### 9. `<support>`
 **Definition**: Explicit backing or agreement with other speakers or positions.
+
 **Values**: References to specific speakers with their full names and specific id_syceron.
 
 **Usage**: Always includes the complete name of the person and their speech identifier.
@@ -272,6 +281,7 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 
 #### 10. `<attack>`
 **Definition**: Explicit criticism or opposition to other speakers or positions.
+
 **Values**: References to specific speakers with their full names and specific id_syceron being criticized.
 
 **Usage**: Always includes the complete name of the person and their speech identifier.
@@ -282,6 +292,7 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 
 #### 11. `<reference>`
 **Definition**: Neutral mentions or citations of other speakers, documents, or legislative elements.
+
 **Values**: Full names of people with their specific id_syceron for neutral references.
 
 **Usage**: Used for neutral mentions that aren't explicitly supportive or attacking.
@@ -292,6 +303,7 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 
 #### 12. `<performative_act>`
 **Definition**: Actual actions performed through the speaker's intervention.
+
 **Values**:
 - `Call to vote` - Initiating voting procedures
 - `Announce vote result` - Declaring voting outcomes
@@ -324,6 +336,7 @@ Each `<speech>` element contains annotations for individual parliamentary interv
 
 #### 13. `<text_editing>`
 **Definition**: Specific textual modifications proposed for legislation or amendments.
+
 **Values**: 
 - `ADD ("[text to add]")` - Proposed additions to text
 - `REMOVE ("[text to remove]")` - Proposed deletions from text
